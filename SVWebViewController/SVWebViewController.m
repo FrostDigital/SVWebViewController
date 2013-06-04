@@ -290,14 +290,19 @@
     // Override if you like...
 }
 
+-(void)webViewWillLoad {
+    // Override if you like...
+}
+
 #pragma mark -
 #pragma mark UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self updateToolbarItems];
+    
+    [self webViewWillLoad];
 }
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
