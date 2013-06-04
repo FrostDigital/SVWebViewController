@@ -286,6 +286,10 @@
     }
 }
 
+-(void)webViewDidLoad {
+    // Override if you like...
+}
+
 #pragma mark -
 #pragma mark UIWebViewDelegate
 
@@ -300,6 +304,8 @@
     
     self.navigationItem.title = [[webView stringByEvaluatingJavaScriptFromString:@"document.title"] uppercaseString];
     [self updateToolbarItems];
+    
+    [self webViewDidLoad];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

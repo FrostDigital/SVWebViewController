@@ -15,6 +15,8 @@
 - (id)initWithAddress:(NSString*)urlString;
 - (id)initWithURL:(NSURL*)URL;
 
+-(void)webViewDidLoad;
+
 @property (nonatomic, readwrite) SVWebViewControllerAvailableActions availableActions;
 @property (nonatomic, readwrite) BOOL toolbarHidden;
 
