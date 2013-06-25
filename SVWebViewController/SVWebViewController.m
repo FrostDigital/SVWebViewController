@@ -48,8 +48,8 @@
     
     if (!backBarButtonItem) {
         backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/back"] style:UIBarButtonItemStylePlain target:self action:@selector(goBackClicked:)];
-        backBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		backBarButtonItem.width = 18.0f;
+        //backBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
+		//backBarButtonItem.width = 18.0f;
     }
     return backBarButtonItem;
 }
@@ -58,8 +58,8 @@
     
     if (!forwardBarButtonItem) {
         forwardBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/forward"] style:UIBarButtonItemStylePlain target:self action:@selector(goForwardClicked:)];
-        forwardBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		forwardBarButtonItem.width = 18.0f;
+        //forwardBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
+		//forwardBarButtonItem.width = 18.0f;
     }
     return forwardBarButtonItem;
 }
@@ -68,8 +68,8 @@
     
     if (!refreshBarButtonItem) {
         refreshBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/refresh"] style:UIBarButtonItemStylePlain target:self action:@selector(reloadClicked:)];
-        refreshBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		refreshBarButtonItem.width = 18.0f;        
+        //refreshBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
+		//refreshBarButtonItem.width = 18.0f;
     }
     
     return refreshBarButtonItem;
