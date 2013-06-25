@@ -42,14 +42,32 @@
 @synthesize URL, mainWebView;
 @synthesize backBarButtonItem, forwardBarButtonItem, refreshBarButtonItem, stopBarButtonItem, actionBarButtonItem, pageActionSheet;
 
+- (UIBarButtonItem *) createCustomBarButtonWithImageNamed:(NSString *)imageName target:(id)target action:(SEL)action {
+    //Load the image
+    UIImage *buttonImage = [UIImage imageNamed:imageName];
+    
+    //create the button and assign the image
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    
+    //sets the frame of the button to the size of the image
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    
+    //creates a UIBarButtonItem with the button as a custom view
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    barBtn.target = target;
+    barBtn.action = action;
+    
+    return barBtn;
+}
+
 #pragma mark - setters and getters
 
 - (UIBarButtonItem *)backBarButtonItem {
     
     if (!backBarButtonItem) {
-        backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/back"] style:UIBarButtonItemStylePlain target:self action:@selector(goBackClicked:)];
-        //backBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		//backBarButtonItem.width = 18.0f;
+        backBarButtonItem = [self createCustomBarButtonWithImageNamed:@"SVWebViewController.bundle/iPhone/back" target:self action:@selector(goBackClicked:)];
     }
     return backBarButtonItem;
 }
@@ -57,9 +75,7 @@
 - (UIBarButtonItem *)forwardBarButtonItem {
     
     if (!forwardBarButtonItem) {
-        forwardBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/forward"] style:UIBarButtonItemStylePlain target:self action:@selector(goForwardClicked:)];
-        //forwardBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		//forwardBarButtonItem.width = 18.0f;
+        forwardBarButtonItem = [self createCustomBarButtonWithImageNamed:@"SVWebViewController.bundle/iPhone/forward" target:self action:@selector(goForwardClicked:)];
     }
     return forwardBarButtonItem;
 }
@@ -67,9 +83,7 @@
 - (UIBarButtonItem *)refreshBarButtonItem {
     
     if (!refreshBarButtonItem) {
-        refreshBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/refresh"] style:UIBarButtonItemStylePlain target:self action:@selector(reloadClicked:)];
-        //refreshBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
-		//refreshBarButtonItem.width = 18.0f;
+        refreshBarButtonItem = [self createCustomBarButtonWithImageNamed:@"SVWebViewController.bundle/iPhone/refresh" target:self action:@selector(reloadClicked:)];
     }
     
     return refreshBarButtonItem;
