@@ -49,17 +49,13 @@
     //create the button and assign the image
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:buttonImage forState:UIControlStateNormal];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchDown];
     
     //sets the frame of the button to the size of the image
     button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
     
     //creates a UIBarButtonItem with the button as a custom view
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
-    
-    barBtn.target = target;
-    barBtn.action = action;
-    
-    return barBtn;
+    return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 #pragma mark - setters and getters
