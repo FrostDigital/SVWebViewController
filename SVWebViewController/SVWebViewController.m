@@ -67,7 +67,9 @@
 - (UIBarButtonItem *)refreshBarButtonItem {
     
     if (!refreshBarButtonItem) {
-        refreshBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reloadClicked:)];
+        refreshBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/iPhone/refresh"] style:UIBarButtonItemStylePlain target:self action:@selector(reloadClicked:)];
+        refreshBarButtonItem.imageInsets = UIEdgeInsetsMake(2.0f, 0.0f, -2.0f, 0.0f);
+		refreshBarButtonItem.width = 18.0f;        
     }
     
     return refreshBarButtonItem;
@@ -298,7 +300,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    //self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self updateToolbarItems];
 }
 
