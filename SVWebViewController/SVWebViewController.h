@@ -17,5 +17,6 @@
 
 @property (nonatomic, readwrite) SVWebViewControllerAvailableActions availableActions;
 @property (nonatomic, readwrite) BOOL toolbarHidden;
+@property (nonatomic) BOOL titleFromHTMLTitle;
 
 @end
