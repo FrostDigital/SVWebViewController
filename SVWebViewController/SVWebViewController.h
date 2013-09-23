@@ -10,6 +10,8 @@
 
 #import "SVModalWebViewController.h"
 
+#define SVWebViewNotificationOffline @"SVWebViewNotificationOffline"
+
 @interface SVWebViewController : UIViewController
 
 - (id)initWithAddress:(NSString*)urlString;

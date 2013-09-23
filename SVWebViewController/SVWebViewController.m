@@ -320,6 +320,10 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self updateToolbarItems];
+    
+    if (error.code == NSURLErrorNotConnectedToInternet) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:SVWebViewNotificationOffline object:nil];
+    }
 }
 
 #pragma mark - Target actions
