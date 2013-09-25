@@ -321,7 +321,9 @@
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self updateToolbarItems];
     
-    if (error.code == NSURLErrorNotConnectedToInternet) {
+    if (error.code == NSURLErrorNotConnectedToInternet
+        || error.code == NSURLErrorTimedOut
+        || error.code == NSURLErrorNetworkConnectionLost) {
         [[NSNotificationCenter defaultCenter] postNotificationName:SVWebViewNotificationOffline object:nil];
     }
 }
