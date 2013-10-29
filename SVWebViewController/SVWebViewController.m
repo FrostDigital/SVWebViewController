@@ -254,22 +254,25 @@
     } 
     
     else {
-        NSArray *items;
-        
         if(self.availableActions == 0) {
-            items = [NSArray arrayWithObjects:
-                     flexibleSpace,
-                     self.backBarButtonItem, 
-                     flexibleSpace,
-                     self.forwardBarButtonItem,
-                     flexibleSpace,
-                     refreshStopBarButtonItem,
-                     flexibleSpace,
-                     nil];
+            NSArray *leftItems = [NSArray arrayWithObjects:
+                                  flexibleSpace,
+                                  self.backBarButtonItem,
+                                  flexibleSpace,
+                                  self.forwardBarButtonItem,
+                                  fixedSpace, nil];
+            
+            NSArray *rightItems = [NSArray arrayWithObjects:
+                                   fixedSpace,
+                                   refreshStopBarButtonItem,
+                                   nil];
+            
+            [self.navigationItem setLeftBarButtonItems:leftItems];
+            [self.navigationItem setRightBarButtonItems:rightItems];
         } else {
-            items = [NSArray arrayWithObjects:
+            NSArray *items = [NSArray arrayWithObjects:
                      fixedSpace,
-                     self.backBarButtonItem, 
+                     self.backBarButtonItem,
                      flexibleSpace,
                      self.forwardBarButtonItem,
                      flexibleSpace,
@@ -278,11 +281,11 @@
                      self.actionBarButtonItem,
                      fixedSpace,
                      nil];
+            
+            self.navigationController.toolbar.barStyle = self.navigationController.navigationBar.barStyle;
+            self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
+            self.toolbarItems = items;
         }
-        
-				self.navigationController.toolbar.barStyle = self.navigationController.navigationBar.barStyle;
-				self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
-        self.toolbarItems = items;
     }
 }
 
